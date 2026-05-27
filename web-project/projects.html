@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KMS 자기소개 - 프로젝트</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @keyframes shimmer {
+        0% {
+          background-position: -200% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes barGrow {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes logoGlow {
+        0%,
+        100% {
+          text-shadow: 0 0 8px #00d2d366;
+        }
+        50% {
+          text-shadow:
+            0 0 24px #00d2d3bb,
+            0 0 48px #00d2d344;
+        }
+      }
+
+      body {
+        background: #0d1b2a;
+        font-family: "Malgun Gothic", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #1e272e;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #00d2d322;
+        animation: fadeDown 0.6s ease both;
+      }
+      .logo {
+        color: #00d2d3;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        animation: logoGlow 3s ease-in-out infinite;
+      }
+      header ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      header li {
+        margin-left: 20px;
+      }
+      header a {
+        color: #85e3ff;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 4px;
+        transition: color 0.3s;
+      }
+      header a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: #00d2d3;
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+      header a:hover {
+        color: #00d2d3;
+      }
+      header a:hover::after {
+        width: 100%;
+      }
+
+      .project-section {
+        padding: 40px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex: 1;
+        box-sizing: border-box;
+        animation: fadeUp 0.7s ease 0.2s both;
+      }
+
+      .title-wrap {
+        margin-bottom: 32px;
+      }
+      .project-section h2 {
+        font-size: 26px;
+        font-weight: 900;
+        color: #ffffff;
+        letter-spacing: 4px;
+        margin: 0 0 10px 0;
+      }
+      .title-bar {
+        height: 4px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #00d2d3, #85e3ff, #00d2d3);
+        background-size: 200% auto;
+        animation:
+          shimmer 2s linear infinite,
+          barGrow 0.9s ease both;
+      }
+
+      .project-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+        margin-bottom: 40px;
+        animation: fadeUp 0.7s ease 0.4s both;
+      }
+
+      .project-photo-box,
+      .project-info-box {
+        flex: 1;
+        min-height: 450px;
+        background-color: #1a2c3d;
+        border: 1px solid #00d2d322;
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        box-sizing: border-box;
+      }
+      .project-photo-box:hover,
+      .project-info-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 32px #00d2d322;
+      }
+      .project-photo-box::before,
+      .project-info-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #00d2d3, #85e3ff, #00d2d3);
+        background-size: 200% auto;
+        animation: shimmer 2s linear infinite;
+      }
+
+      /* 이미지 레이아웃 정렬 세팅 */
+      .project-photo-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+      }
+      .project-photo-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* 이미지 비율 유지 */
+        border-radius: 8px;
+      }
+
+      .project-info-box {
+        padding: 32px;
+      }
+      .project-info-box h3 {
+        color: #00d2d3;
+        font-size: 22px;
+        margin: 0 0 16px 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #00d2d322;
+      }
+      .project-desc {
+        font-size: 14.5px;
+        line-height: 1.9;
+        color: #b0cce0;
+        text-align: justify;
+      }
+
+      footer {
+        background-color: #1e272e;
+        color: #00d2d388;
+        text-align: center;
+        padding: 15px;
+        width: 100%;
+        border-top: 1px solid #00d2d322;
+        font-size: 13px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">KMS</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">메인 페이지</a></li>
+          <li><a href="skills.html">기술 목록</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="project-section">
+      <div class="title-wrap">
+        <h2>프로젝트</h2>
+        <div class="title-bar"></div>
+      </div>
+
+      <div class="project-container">
+        <div class="project-photo-box">
+          <img src="images/project-photo-1.png" alt="My Todo 메인 화면" />
+        </div>
+        <div class="project-photo-box">
+          <img src="images/project-photo-2.png" alt="My Todo 기능 화면" />
+        </div>
+        <div class="project-info-box">
+          <div class="project-item">
+            <h3>My Todo 웹 애플리케이션</h3>
+            <p class="project-desc">
+              바닐라 자바스크립트로 구현한 나만의 할 일 관리(Todo)
+              프로그램입니다. '2026. 5. 28.'과 같이 오늘 날짜가 화면 상단에
+              자동으로 표시되는 기능을 구현했습니다. 사용자가 입력창에 할 일을
+              적고 우측의 '추가' 버튼을 누르거나 키보드의 엔터키를 입력하면
+              목록에 즉시 반영됩니다. 생성된 할 일 카드 내부에는 '수정', '완료',
+              '삭제' 버튼을 각각 독립적인 기능으로 매핑하여 배치했습니다.
+              '완료'를 누르면 항목 처리가 완료되고, '수정'으로 내용 변경이
+              가능하며, '삭제' 시 목록에서 즉시 제거됩니다. 각 버튼과 리스트
+              항목에 마우스를 올리면 커서가 손가락 모양(Pointer)으로 바뀌도록
+              스타일을 제어했으며, 최하단에는 현재 처리해야 할 '남은 할 일의
+              개수'가 실시간으로 계산되어 화면에 출력되는 상태 관리 기능을
+              갖추고 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-container" style="animation-delay: 0.6s">
+        <div class="project-photo-box">
+          <img
+            src="images/랜덤 고양이 이미지 사이트.png"
+            alt="랜덤 고양이 이미지 사이트"
+          />
+        </div>
+        <div class="project-info-box">
+          <div class="project-item">
+            <h3>랜덤 고양이 이미지 사이트</h3>
+            <p class="project-desc">
+              바닐라 자바스크립트와 외부 API를 활용해 랜덤 고양이 이미지를
+              보여주는 웹사이트를 구현했습니다. 버튼을 클릭할 때마다 새로운
+              고양이 사진이 화면에 출력되며, 매번 다른 이미지가 랜덤으로
+              불러와집니다. API 호출과 비동기 처리를 직접 구현해보며 fetch
+              함수와 Promise의 동작 방식을 익혔습니다. 완성된 사이트는 Vercel을
+              통해 배포하여 실제 웹에서 동작하는 서비스로 만들어보는 경험을 할
+              수 있었습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Copyright 2026 KMS. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

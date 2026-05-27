@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KMS 자기소개 - 메인</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @keyframes glow {
+        0%,
+        100% {
+          box-shadow: 0 0 16px #00d2d355;
+        }
+        50% {
+          box-shadow: 0 0 32px #00d2d388;
+        }
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: -200% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+      @keyframes liPop {
+        from {
+          opacity: 0;
+          transform: translateX(-16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes barGrow {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes logoGlow {
+        0%,
+        100% {
+          text-shadow: 0 0 8px #00d2d366;
+        }
+        50% {
+          text-shadow:
+            0 0 24px #00d2d3bb,
+            0 0 48px #00d2d344;
+        }
+      }
+
+      body {
+        background: #0d1b2a;
+        font-family: "Malgun Gothic", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #1e272e;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #00d2d322;
+        animation: fadeDown 0.6s ease both;
+      }
+      .logo {
+        color: #00d2d3;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        animation: logoGlow 3s ease-in-out infinite;
+      }
+      header ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      header li {
+        margin-left: 20px;
+      }
+      header a {
+        color: #85e3ff;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 4px;
+        transition: color 0.3s;
+      }
+      header a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: #00d2d3;
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+      header a:hover {
+        color: #00d2d3;
+      }
+      header a:hover::after {
+        width: 100%;
+      }
+
+      section {
+        padding: 40px;
+        max-width: 820px;
+        margin: 0 auto;
+        flex: 1;
+        animation: fadeUp 0.7s ease 0.2s both;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .title-wrap {
+        margin-bottom: 32px;
+      }
+      .title-wrap h2 {
+        font-size: 26px;
+        font-weight: 900;
+        color: #ffffff;
+        letter-spacing: 4px;
+        margin: 0 0 10px 0;
+      }
+      .title-bar {
+        height: 4px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #00d2d3, #85e3ff, #00d2d3);
+        background-size: 200% auto;
+        animation:
+          shimmer 2s linear infinite,
+          barGrow 0.9s ease both;
+      }
+
+      .card {
+        background: #1a2c3d;
+        border: 1px solid #00d2d322;
+        border-radius: 16px;
+        padding: 28px;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 32px #00d2d322;
+      }
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #00d2d3, #85e3ff, #00d2d3);
+        background-size: 200% auto;
+        animation: shimmer 2s linear infinite;
+      }
+
+      .profile-card {
+        animation: fadeUp 0.7s ease 0.4s both;
+      }
+      .profile-row {
+        display: flex;
+        gap: 28px;
+        align-items: flex-start;
+      }
+
+      /* 수행평가 요구사항: 5px 이상 테두리 + 3px 3px 이상 그림자 */
+      .profile-photo {
+        width: 150px;
+        height: 180px;
+        min-width: 150px;
+        background-image: url("images/내사진.png");
+        background-size: cover;
+        background-position: center;
+        border: 5px solid #00d2d3;
+        border-radius: 12px;
+        box-shadow: 5px 5px 16px rgba(0, 0, 0, 0.6);
+        animation: glow 3s ease-in-out infinite;
+        transition: transform 0.3s;
+        margin-bottom: 0;
+        box-sizing: border-box;
+      }
+      .profile-photo:hover {
+        transform: scale(1.04);
+      }
+
+      .intro-col h3 {
+        color: #00d2d3;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin: 0 0 12px 0;
+      }
+      .intro-text {
+        color: #b0cce0;
+        font-size: 14px;
+        line-height: 1.9;
+        margin: 0;
+      }
+
+      .career-card {
+        animation: fadeUp 0.7s ease 0.6s both;
+      }
+      .career-box h3 {
+        color: #00d2d3;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin: 0 0 16px 0;
+      }
+      .career-box ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .career-box li {
+        color: #b0cce0;
+        font-size: 14px;
+        padding: 8px 0 8px 20px;
+        border-bottom: 1px solid #ffffff08;
+        position: relative;
+        opacity: 0;
+        animation: liPop 0.4s ease forwards;
+      }
+      .career-box li:last-child {
+        border-bottom: none;
+      }
+      .career-box li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #00d2d3;
+      }
+      .career-box li:nth-child(1) {
+        animation-delay: 0.8s;
+      }
+      .career-box li:nth-child(2) {
+        animation-delay: 0.95s;
+      }
+      .career-box li:nth-child(3) {
+        animation-delay: 1.1s;
+      }
+      .career-box li:nth-child(4) {
+        animation-delay: 1.25s;
+      }
+      .career-box li:nth-child(5) {
+        animation-delay: 1.4s;
+      }
+      .career-box li:nth-child(6) {
+        animation-delay: 1.55s;
+      }
+
+      footer {
+        background-color: #1e272e;
+        color: #00d2d388;
+        text-align: center;
+        padding: 15px;
+        width: 100%;
+        border-top: 1px solid #00d2d322;
+        font-size: 13px;
+        animation: fadeUp 0.6s ease 1.7s both;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">KMS</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">메인 페이지</a></li>
+          <li><a href="projects.html">프로젝트</a></li>
+          <li><a href="skills.html">기술</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <div class="title-wrap">
+        <h2>메인 페이지</h2>
+        <div class="title-bar"></div>
+      </div>
+
+      <div class="card profile-card">
+        <div class="profile-row">
+          <div class="profile-photo"></div>
+          <div class="intro-col">
+            <h3>자기소개</h3>
+            <p class="intro-text">
+              안녕하세요. 저는 광주소프트웨어마이스터고등학교에 다니고 있는
+              곽민서입니다. 저는 1학년 1반 2번입니다. 저는 성실함과 꾸준함을
+              가장 중요한 가치로 여기며, 매일 조금씩 성장하는 개발자가 되고
+              싶습니다. 현재 프론트엔드 분야를 전공하고 있으며, HTML과 CSS,
+              자바스크립트를 공부하고 있습니다. VOID 동아리에서 활동하며 다양한
+              프로젝트 경험을 쌓고 있고, 사이버 방범대와 환경지킴이 활동을 통해
+              책임감도 기르고 있습니다. 앞으로도 꾸준히 노력하여 실력 있는
+              개발자로 성장하고 싶습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card career-card">
+        <div class="career-box">
+          <h3>경력사항</h3>
+          <ul>
+            <li>광주소프트웨어마이스터고 재학</li>
+            <li>학급 부반장 활동</li>
+            <li>프론트엔드 분야 전공</li>
+            <li>VOID 동아리 소속</li>
+            <li>교재 환경지킴이 활동</li>
+            <li>사이버 방범대 활동</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Copyright 2026 KMS. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
